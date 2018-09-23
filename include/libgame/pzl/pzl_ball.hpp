@@ -134,6 +134,15 @@ typedef struct pzl_ball
 		pzl_object_type_t type     = (type) & ~PZL_TYPE_HARDNESS_MASK;
 		type = hardness | type;
 	}
+	pzl_object_type_t get_group(void) {
+		pzl_object_type_t group = (type) & PZL_TYPE_GROUP_MASK;
+		return group;
+	}
+	void set_group(pzl_object_type_t group) {
+		pzl_object_type_t new_type = (type & ~PZL_TYPE_GROUP_MASK) |
+						 (group & PZL_TYPE_GROUP_MASK);
+		type = new_type;
+	}
 } pzl_ball_t;
 
 #endif // _PZL_FIELD_H_

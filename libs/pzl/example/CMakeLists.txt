@@ -36,10 +36,22 @@ link_directories(
 	
 set(CMAKE_C_FLAGS "-g -o0")
 
+# ---------------------------------------------------------------
+# puyo-sample
+# ---------------------------------------------------------------
 add_executable(puyo-sample 
 	puyo-sample.cpp
 	)
-
 target_link_libraries(puyo-sample
+	game.pzl.linux.x86
+	)
+
+# ---------------------------------------------------------------
+# reversi-sample
+# ---------------------------------------------------------------
+add_executable(reversi-sample 
+	reversi_sample.cpp
+	)
+target_link_libraries(reversi-sample
 	game.pzl.linux.x86
 	)

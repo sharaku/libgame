@@ -56,6 +56,7 @@ set(CMAKE_CXX_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_MINSIZEREL} ${CROSS_FLAGS_CXX}
 set(MODULE_SYSTEM
 	"src/pzl_actball.cpp"
 	"src/pzl_field.cpp"
+	"src/pzl_reversi_field.cpp"
 	)
 add_library(game.pzl.${TARGET_SUFFIX} STATIC
 	${MODULE_SYSTEM}
