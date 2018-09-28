@@ -47,14 +47,12 @@
 
 typedef struct pzl_reversi_field : public pzl_field
 {
-	pzl_reversi_field();
-	pzl_reversi_field(int16_t width, int16_t hight);
-	int initialize(int16_t width, int16_t hight);
-
 	int check_chain(pzl_object_type_t type, int16_t x, int16_t y);
 	int upd_chain(pzl_object_type_t type, int16_t x, int16_t y);
 
-	// フィールド内の指定座標の玉構造体を取得する。
+	// フィールド内の指定座標に玉を置く。
+	// ただし、既に置いてある、ひっくり返せない場合は置かない。
+	// 戻り値がNULLの場合はおけなかったということ。
 	pzl_ball_t* set_piece(pzl_object_type_t type, int16_t x, int16_t y);
 
 	// フラグが立っているものをひっくり返す

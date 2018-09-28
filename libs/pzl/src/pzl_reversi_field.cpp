@@ -27,20 +27,6 @@
 #include <libgame/pzl/pzl_reversi_field.hpp>
 #include <stdio.h>
 
-pzl_reversi_field::pzl_reversi_field()
-{
-}
-
-pzl_reversi_field::pzl_reversi_field(int16_t width, int16_t hight)
-{
-}
-
-int
-pzl_reversi_field::initialize(int16_t width, int16_t hight)
-{
-	pzl_field::initialize(width, hight);
-}
-
 int
 pzl_reversi_field::__check_chain(pzl_object_type_t type, int16_t raw_x, int16_t raw_y, int vx, int vy, pzl_check_serial_cb_t cb)
 {

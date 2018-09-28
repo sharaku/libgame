@@ -24,8 +24,6 @@
  *
  */
 
-// g++ reversi_sample.cpp -I../include -L../libs/pzl -lgame.pzl.linux.x86
-
 #include <libgame/tui/tui.hpp>
 #include <libgame/obj_maps.hpp>
 #include <libgame/pzl/pzl_reversi_field.hpp>
