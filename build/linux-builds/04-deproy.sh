@@ -45,5 +45,6 @@ mkdir -p ${DEF_LOGPATH}/bin/libgame
 # ---------------------------------------------------------------------------
 cp -pR ${BASE_PATH}/include/libgame ${DEF_LOGPATH}/include
 cp -pR ${BASE_PATH}/libs/pzl/libgame.pzl.linux.x86.a ${DEF_LOGPATH}/lib/libgame
+cp -pR ${BASE_PATH}/libs/pzl/libgame.wslg.linux.x86.a ${DEF_LOGPATH}/lib/libgame
 
 

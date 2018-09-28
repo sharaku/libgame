@@ -38,6 +38,7 @@ rm -rf ${DEF_DEPROYPATH}
 if [ -f ${BASE_PATH}libs/generic/Makefile ]; then
 	# libをクリア
 	make -C ${BASE_PATH}libs/pzl clean
+	make -C ${BASE_PATH}libs/wslg clean
 
 	# ツールをクリア
 

@@ -53,13 +53,13 @@ struct obj_pool {
 		__objp = NULL;
 	}
 
-	obj_pool(int32_t cnt) {
+	obj_pool(int32_t cnt, T *addr = NULL) {
 		__constructor = NULL;
 		__destructor = NULL;
 		init_list_head(&__pool);
 		__objp = NULL;
 
-		initialize(cnt);
+		initialize(cnt, addr);
 	}
 
 	~obj_pool() {
@@ -69,10 +69,15 @@ struct obj_pool {
 		init_list_head(&__pool);
 	}
 
-	int initialize(int32_t cnt) {
+	int initialize(int32_t cnt, T *addr = NULL) {
 		int idx;
 		init_list_head(&__pool);
-		__objp = (T*)malloc(sizeof(T) * cnt);
+
+		if (addr) {
+			__objp = (T*)malloc(sizeof(T) * cnt);
+		} else {
+			__objp = addr;
+		}
 		if (!__objp) {
 			return -errno;
 		}

@@ -43,6 +43,7 @@
 // MAP領域のメモリは各自で確保する必要がある。
 
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
 #include <errno.h>
 

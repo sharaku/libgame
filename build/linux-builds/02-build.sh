@@ -79,9 +79,11 @@ do_build()
 
 # libをビルド
 do_lib_build ${BASE_PATH}libs/pzl linux-x86
+do_lib_build ${BASE_PATH}libs/wslg linux-x86
 
 # ツールをビルド
 
 # サンプルをビルド
 do_example_build ${BASE_PATH}libs/pzl linux-x86
+do_example_build ${BASE_PATH}libs/wslg linux-x86
 

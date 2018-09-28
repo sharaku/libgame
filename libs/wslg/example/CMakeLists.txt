@@ -1,9 +1,8 @@
-#!/bin/sh
 # ----------------------------------------------------------------------------
 #
 #  MIT License
 #  
-#  Copyright (c) 2017 Abe Takafumi
+#  Copyright (c) 2016 Abe Takafumi
 #  
 #  Permission is hereby granted, free of charge, to any person obtaining a copy
 #  of this software and associated documentation files (the "Software"), to deal
@@ -23,24 +22,26 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE. *
 #
+#  System CMake file for libsharaku
 # ----------------------------------------------------------------------------
+cmake_minimum_required(VERSION 3.5)
 
-cd `dirname $0`
-readonly OBJ_PATH=`pwd`
-readonly DEF_LOGPATH=${OBJ_PATH}/result
-readonly BASE_PATH=${OBJ_PATH}/../../
+# ---------------------------------------------------------------
+include_directories(
+	../../../include/
+	)
+link_directories(
+	../../../libs/wslg/
+	)
+	
+set(CMAKE_C_FLAGS "-g -o0")
 
-mkdir -p ./result
-
-# 静的チェックを行う
-#  arg1		ビルド対象
-do_src_cppcheck()
-{
-	lib_path=$1
-	lib_name=`basename ${lib_path}`
-
-	cppcheck --enable=all --xml ${lib_path}/src 2> ${DEF_LOGPATH}/cppcheck.${lib_name}.xml
-}
-
-do_src_cppcheck ${BASE_PATH}libs/pzl
-do_src_cppcheck ${BASE_PATH}libs/wslg
+# ---------------------------------------------------------------
+# puyo-sample
+# ---------------------------------------------------------------
+add_executable(chess_sample 
+	chess_sample.cpp
+	)
+target_link_libraries(chess_sample
+	game.wslg.linux.x86
+	)
